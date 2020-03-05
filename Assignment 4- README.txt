@@ -19,8 +19,12 @@ FILE INFO:
 	- Extracts only the measurements on the mean and standard deviation for each measurement.
 	- Uses descriptive activity names to name the activities in the data set
 	- Appropriately labels the data set with descriptive variable names.
-	- From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and 		  each subject.
+	- From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity
+	  and each subject.
 
 - "Assignment 4- Code Book.txt": Provides a description of variables used in the RUN_ANALYSIS.R script. 
 
-- "FinalData.txt": The resultant dataset of RUN_ANALYSIS.R. 
+- "FinalData.txt": The resultant dataset of RUN_ANALYSIS.R when using the write.table function.
+
+-"FinalData.csv": The resultant dataset of RUN_ANALYSIS.R when using the write.csv function. I did this because the CSV file is
+		  much easier to understand.
