@@ -1,0 +1,67 @@
+
+Emily Daniels
+March 5, 2020
+Coursera Course: Getting and Cleaning Data
+Week 4: Course Project 
+
+My RUN_ANALYSIS.R file analyzes data downloaded from: 
+
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+To create an R script that does the following.
+
+		1. Merges the training and the test sets to create one data set.
+		2. Extracts only the measurements on the mean and standard deviation for each measurement.
+		3. Uses descriptive activity names to name the activities in the data set
+		4. Appropriately labels the data set with descriptive variable names.
+		5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each 				   activity and each subject.
+
+Then I assigned the data to variables
+
+	feat <- features.txt	:: 	Features drawn fromm accelerometer and gyroscope data in 3 axis 
+
+	activity, activity_labels, activity_num <- activity_labels.txt 	::	List of 6 activities performed by test subjects
+	
+	x_train <- X_train.txt	::	Contains raw data from volunteers performing various activities
+	
+	y_train <- y_train.txt	:: 	Labels for the training data
+
+	sub_train <- subject_train.txt		:: Identifiers for subjects who performed the activities in the training data set
+
+	x_test <- X_test.txt	:: Contains raw data from volunteers performing various activities
+
+	y_test <- y_test.txt	:: Labels for the testing data 
+
+	sub_test <- subject_test.txt	:: Identifiers for subjects who performed the activities in the testing data set
+
+To merge the training and test data sets
+
+	alltrain <- data table made from all the training data using cbind
+	alltest <- data table made from all the testing data using cbind
+	traintest <- complete data set from both the alltest and alltrain data using rbind
+
+To extract measurements for Mean and Standard Deviation
+
+	wantedfeat <- uses grep to select all column names that contain Mean and Standard Deviation
+
+To label the data set with descriptive variable names 
+
+	Using gsub to modify parts ( [] ) of the column headers to more descriptive words 
+	
+	[ f ] -> FrequencyDomain 
+	[ t ] -> TimeDomain 
+	[ Acc ] -> Acceleration
+	[ Gyro ] -> Gyroscope
+	[ Freq ] -> Frequency
+	[ mean ] -> Mean 
+	[ std ] -> StandardDeviation
+	[ BodyBody ] -> Body
+
+
+To label the data with descriptive variable names
+
+	keepdata$Activity <- Changes the activity column from numbers to their corresponding activity
+
+To create an independent tidy data set 
+		
+		finalmeans <- created by grouping and summarizing the finaldata set and writing it out to another file called FinalData.txt
